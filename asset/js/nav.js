@@ -1,68 +1,66 @@
-document.addEventListener("DOMContentLoaded", function() {
-  // Activate sidebar nav
-  var elems = document.querySelectorAll(".sidenav");
-  M.Sidenav.init(elems);
-  loadNav();
+document.addEventListener('DOMContentLoaded', () => {
+    // Activate sidebar nav
+    const elems = document.querySelectorAll('.sidenav');
+    M.Sidenav.init(elems);
+    loadNav();
 
-  function loadNav() {
-    var xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function() {
-      if (this.readyState == 4) {
-        if (this.status != 200) return;
+    function loadNav() {
+        const xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+            if (this.readyState == 4) {
+                if (this.status != 200) return;
 
-        // Muat daftar tautan menu
-        document.querySelectorAll(".topnav, .sidenav").forEach(function(elm) {
-          elm.innerHTML = xhttp.responseText;
-        });
+                // Muat daftar tautan menu
+                document.querySelectorAll('.topnav, .sidenav').forEach((elm) => {
+                    elm.innerHTML = xhttp.responseText;
+                });
 
-        // Daftarkan event listener untuk setiap tautan menu
-        document
-          .querySelectorAll(".sidenav a, .topnav a")
-          .forEach(function(elm) {
-            elm.addEventListener("click", function(event) {
-              // Tutup sidenav
-              var sidenav = document.querySelector(".sidenav");
-              M.Sidenav.getInstance(sidenav).close();
+                // Daftarkan event listener untuk setiap tautan menu
+                document.querySelectorAll('.sidenav a, .topnav a').forEach((elm) => {
+                    elm.addEventListener('click', (event) => {
+                        // Tutup sidenav
+                        const sidenav = document.querySelector('.sidenav');
+                        M.Sidenav.getInstance(sidenav).close();
 
-              // Muat konten halaman yang dipanggil
-              page = event.target.getAttribute("href").substr(1);
-              loadPage(page);
-            });
-          });
-      }
-    };
-    xhttp.open("GET", "nav.html", true);
-    xhttp.send();
-  }
+                        // Muat konten halaman yang dipanggil
+                        page = event.target.getAttribute('href').substr(1);
+                        loadPage(page);
+                    });
+                });
+            }
+        };
+        xhttp.open('GET', 'nav.html', true);
+        xhttp.send();
+    }
 
-  // Load page content
-  var page = window.location.hash.substr(1);
-  if (page == "") page = "home";
-  loadPage(page);
+    // Load page content
+    let page = window.location.hash.substr(1);
+    if (page == '') page = 'home';
+    loadPage(page);
 
-  function loadPage(page) {
-    // fetch('pages/' + page + '.html')
-    var xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function() {
-      if (this.readyState == 4) {
-        var content = document.querySelector("#content-body");
-        
-        if (page === "home") {
-          // getArticles();
-        } else if (page === "saved") {
-          // getSavedArticles();
-        }
+    function loadPage(page) {
+        // fetch('pages/' + page + '.html')
+        const xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+            if (this.readyState == 4) {
+                const content = document.querySelector('#main-content') || '';
 
-        if (this.status == 200) {
-          content.innerHTML = xhttp.responseText;
-        } else if (this.status == 404) {
-          content.innerHTML = "<p>Halaman tidak ditemukan.</p>";
-        } else {
-          content.innerHTML = "<p>Ups.. halaman tidak dapat diakses.</p>";
-        }
-      }
-    };
-    xhttp.open("GET", "pages/" + page + ".html", true);
-    xhttp.send();
-  }
+                if (page === 'home') {
+                    getTeam();
+                } else if (page === 'saved') {
+                    getSavedTeams()
+                }
+
+                if (this.status == 200) {
+                    content.innerHTML = xhttp.responseText;
+                } else if (this.status == 404) {
+                    content.innerHTML = '<p>Halaman tidak ditemukan.</p>';
+                } else {
+                    content.innerHTML = '<p>Ups.. halaman tidak dapat diakses.</p>';
+                }
+            }
+        };
+        xhttp.open('GET', `pages/${page}.html`, true);
+        xhttp.send();
+    }
 });
