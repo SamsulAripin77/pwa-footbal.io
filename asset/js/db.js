@@ -12,15 +12,15 @@ function saveForLater(team) {
         .then((db) => {
             const tx = db.transaction('teams', 'readwrite');
             const store = tx.objectStore('teams');
-            store.add(team)
+            store.add(team);
             return tx.complete;
         })
         .then(() => {
             console.log('artikel berhasil disimpan di index db');
         })
         .catch((error) => {
-            console.log(`error => ${error}`)
-        })
+            console.log(`error => ${error}`);
+        });
 }
 
 function getAll() {
@@ -63,15 +63,14 @@ function getById(id) {
 
 function deleteById(id) {
     return new Promise((resolve, reject) => {
-        dbPromised.then(function(db) {
+        dbPromised.then((db) => {
             const tx = db.transaction('teams', 'readwrite');
             const store = tx.objectStore('teams');
             store.delete(id);
             return tx.complete;
-        }).then(function() {
+        }).then(() => {
             console.log('Item deleted');
-            let detail = document.querySelector('#detail-content').innerHTML = '';
-            let btnSaved = document.querySelector('.btn-delete').innerHTML = '';
+            const detail = document.querySelector('#detail-content').innerHTML = '';
         });
-    })
+    });
 }

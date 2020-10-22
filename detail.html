@@ -24,23 +24,25 @@
       </ul>
     </div>
   </nav>
+  <div class="container">
+    <h4><strong>List Of Saved Team</strong></h4>
+    <hr>
+  </div>
   <article id="detail-content" class="container">
     <div class="row">
       
-    </div>    
+    </div>
   </article>
-  <div class="fixed-action-btn container">
-    <a class="btn-floating btn-large indigo darken-3" id="save">
-      <i class="large material-icons">save</i>
-    </a>
-  </div>
   
   <script src="./asset/js/materialize.min.js"></script>
-  <!-- <script src="./asset/js/nav.js"></script>    -->
   <script src="./asset/js/idb.js"></script>
   <script src="./asset/js/db.js"></script>
-  <script src="./asset/js/api.js"></script>
-  <script src="./asset/js/api.js"></script>
-  <script src="./asset/js/save-team.js"></script>
+  <script src="./asset/js/html-element.js"></script>
+  <script src="./asset/js/api.js" type="module"></script>
+  <script src="./asset/js/save-team.js" type="module"></script>
+  <script>
+  const elems = document.querySelectorAll('.sidenav');
+  M.Sidenav.init(elems);
+  </script>
 </body>
 </html>
