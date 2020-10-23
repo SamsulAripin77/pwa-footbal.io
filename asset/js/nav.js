@@ -41,29 +41,29 @@ function loadNav() {
 let page = window.location.hash.substr(1);
 if (page == '') page = 'home';
 loadPage(page);
+showDetail()
 
 function loadPage(page) {
-    // fetch('pages/' + page + '.html')
-    const xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function() {
-        if (this.readyState == 4) {
-            const content = document.querySelector('#main-content') || '';
+    const titleOffline = document.querySelector('#offline-team')
+    const titleOnline = document.querySelector('#online-team')
+    if (page === 'home') {
+        getTeam();
+        title.innerHTML = 'All Teams'
+    } else if (page === 'saved') {
+        getSavedTeams();
+        title.innerHTML = 'Saved Teams'
+    } else {
+        content.innerHTML = '<p>Ups.. halaman tidak dapat diakses.</p>';
+    }
+}
 
-            if (page === 'home') {
-                getTeam();
-            } else if (page === 'saved') {
-                getSavedTeams();
-            }
 
-            if (this.status == 200) {
-                content.innerHTML = xhttp.responseText;
-            } else if (this.status == 404) {
-                content.innerHTML = '<p>Halaman tidak ditemukan.</p>';
-            } else {
-                content.innerHTML = '<p>Ups.. halaman tidak dapat diakses.</p>';
-            }
-        }
-    };
-    xhttp.open('GET', `pages/${page}.html`, true);
-    xhttp.send();
+function showDetail() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const isFormSaved = urlParams.get('saved');
+    if (isFormSaved) {
+        getSavedTeamById()
+    } else {
+        getTeamById()
+    }
 }

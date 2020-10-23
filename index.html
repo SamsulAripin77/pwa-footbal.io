@@ -1,11 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <title>Football</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Football</title>
-    <link rel="stylesheet" href="./asset/css/materialize.css">
+    <meta name="description" content="Footbal Club List">
+    <link rel="shortcut icon" href="./asset/icons/icon-512x512.webp">
+    <link rel="apple-touch-icon" href="./asset/icons/aple-192x192.webp">
     <link rel="stylesheet" href="./asset/css/card-team.css">
+    <link rel="manifest" href="/manifest.json"/>
   </head>
   <body>
     <!-- Navigasi -->
@@ -17,18 +20,19 @@
     <ul class="sidenav" id="nav-mobile"></ul>
   </div>
 </nav>
-<div class="container">
-  <h4><strong>List Of Team</strong></h4>
+<main class="container">
+  <h4><strong id='title'></strong></h4>
   <hr>
-</div>
-<main id="main-content">
-  
+  <div class="row main-content">
+  </div>
 </main>
+<script src="./sw-check.js"></script>
 <script src="./asset/js/materialize.min.js"></script>
 <script src="./asset/js/idb.js"></script>
 <script src="./asset/js/db.js"></script>
 <script src="./asset/js/html-element.js"></script>
 <script src="./asset/js/api.js" type="module"></script>
 <script src="./asset/js/nav.js" type="module"></script>
+</body>
 <!-- <scrip src="./asset/js/swCheck.js"></scrip> -->
 </html>

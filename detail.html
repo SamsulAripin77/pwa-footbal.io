@@ -1,11 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <title>Football</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Football</title>
-    <link rel="stylesheet" href="./asset/css/materialize.css">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+    <meta name="description" content="Footbal Club List">
+    <link rel="shortcut icon" href="./asset/icons/icon-512x512.webp">
+    <link rel="apple-touch-icon" href="./asset/icons/aple-192x192.webp">
+    <link rel="stylesheet" href="./asset/css/card-team.css">
+    <link rel="manifest" href="/manifest.json"/>
   </head>
 </head>
 <body>
@@ -24,25 +27,19 @@
       </ul>
     </div>
   </nav>
-  <div class="container">
-    <h4><strong>List Of Saved Team</strong></h4>
-    <hr>
-  </div>
-  <article id="detail-content" class="container">
-    <div class="row">
-      
-    </div>
-  </article>
+</div>
+<article id="detail-content" class="container">
   
-  <script src="./asset/js/materialize.min.js"></script>
-  <script src="./asset/js/idb.js"></script>
-  <script src="./asset/js/db.js"></script>
-  <script src="./asset/js/html-element.js"></script>
-  <script src="./asset/js/api.js" type="module"></script>
-  <script src="./asset/js/save-team.js" type="module"></script>
-  <script>
-  const elems = document.querySelectorAll('.sidenav');
-  M.Sidenav.init(elems);
-  </script>
+</article>
+<script src="./sw-check.js"></script>
+<script src="./asset/js/materialize.min.js"></script>
+<script src="./asset/js/idb.js"></script>
+<script src="./asset/js/db.js"></script>
+<script src="./asset/js/api.js" type="module"></script>
+<script src="./asset/js/detail-team.js" type="module"></script>
+<script>
+const elems = document.querySelectorAll('.sidenav');
+M.Sidenav.init(elems);
+</script>
 </body>
 </html>

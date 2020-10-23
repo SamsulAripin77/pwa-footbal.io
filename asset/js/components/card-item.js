@@ -41,6 +41,7 @@ class CardItem extends HTMLElement {
     connectedCallback() {
         const urlParams = new URLSearchParams(window.location.search);
         this.id = urlParams.get('id');
+        this.saved = window.location.hash.substr(1)
         this.render()
     }
 
@@ -51,13 +52,13 @@ class CardItem extends HTMLElement {
 
     render() {
         this.getRandom = Math.floor(Math.random() * this.cardColor.length);
-        this.href = this.saved ?
+        this.href = this.saved === 'saved' ?
             `./detail.html?id=${this._team.id}&saved=true` :
             `./detail.html?id=${this._team.id}`;
         this.innerHTML = ` 
       <div class="col l4 m4 s12">
           <div class="card">
-              <a href="${this.href}" class="card-bg card-content white-text" style="background-image: url('./asset/img/${this.cardColor[this.getRandom].bg}.jpg');">
+              <a href="${this.href}" class="card-bg card-content white-text" style="background-image: url('./asset/img/${this.cardColor[this.getRandom].bg}.webp');">
                   <div class=" center relative">
                           <img width="60" height="60" class="absolute circle white img-circle" src="${this._team.crestUrl}" alt="gambar team">
                   </div>
