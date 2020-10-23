@@ -1,7 +1,8 @@
 const webPush = require('web-push');
 
 const vapidKeys = {
-  publicKey: 'BLBK1NVUYXhyJpO2aMux8gkPEkmbmQ3fXz9Xo_3GSssU_orDhLeYaFtLssO_LnrRU_czIjEE2UgFTQhanCT9hRQ',
+  publicKey:
+    'BLBK1NVUYXhyJpO2aMux8gkPEkmbmQ3fXz9Xo_3GSssU_orDhLeYaFtLssO_LnrRU_czIjEE2UgFTQhanCT9hRQ',
   privateKey: '9JYLs8G5QtFmh9BTN8jDNwXFeENoERE9wTz3c4IyNV0',
 };
 
@@ -11,12 +12,14 @@ webPush.setVapidDetails(
   vapidKeys.privateKey,
 );
 
-//jangan lupa ya setiap buka web di device baru endpoint dan key nya berubah jadi harus diganti diganti terus
+// jangan lupa ya setiap buka web di device baru endpoint dan key nya berubah jadi harus diganti diganti terus
 const pushSubscription = {
-  endpoint: 'https://fcm.googleapis.com/fcm/send/cGcOMso7Fbk:APA91bFSE_I-Ag8IX2RHcDDiQ8fdLt29UoEWofOZEhLAsNtAj5tmZHNC00D6bX6USP8GXksqdYLe9578sDck9we57ZDAnJED1Xso3pFr_YnfcRE_ROI-rboP-Dvk2tyHBJmYuphZI77C',
+  endpoint:
+    'https://fcm.googleapis.com/fcm/send/eiAALNGYvME:APA91bG-_fzQUxQtIg6saMbkWKktG_HdBrL8_WZBdi71g94PveazcWlf1TBvQ1-ZG-LM5DC8_lx2klOVOJ9_7xeZGkwhPwcLwl8AR52QdXxQT8fKAf6_ToZ5TFaJ1t2m9tfaYJpV9EHi',
   keys: {
-    p256dh: 'BHL1vzJEGGZQ52w1Y1IHuqqIFlokXtqwYgRTTgEm89nk259QVpWbJWgRvPlAhgUuwxGO+qqUE/ycAxt0xSVloT0=',
-    auth: 'WOAeNwIhWfFgdg1ND3rfSA==',
+    p256dh:
+      'BO1AWEu8uMm0EXoY0FpHVDQHucCkxNKk+FQweXGEx4Jq+JnEJ0TcornWihvjqyRdQiERbJQSLUc6DoGz1YmE+Us=',
+    auth: '+w7rmjH22nAgA23foUl4hA==',
   },
 };
 const payload = 'pesan dari push notification';
@@ -24,8 +27,4 @@ const options = {
   gcmAPIKey: '580211239650',
   TTL: 60,
 };
-webPush.sendNotification(
-  pushSubscription,
-  payload,
-  options,
-);
+webPush.sendNotification(pushSubscription, payload, options);
