@@ -18,5 +18,8 @@
     "eslint-config-airbnb-base": "^14.2.0",
     "eslint-plugin-import": "^2.22.1",
     "install": "^0.13.0"
+  },
+  "devDependencies": {
+    "web-push": "^3.4.4"
   }
 }

@@ -3,6 +3,7 @@
     "short_name": "Football",
     "description": "Football Clubs list teams",
     "start_url": "/",
+    "gcm_sender_id": "554520413474",
     "display": "standalone",
     "background_color": "#00897B",
     "theme_color": "#00897B",
