@@ -1,4 +1,4 @@
-const CACHE_NAME = "football-app-v27";
+const CACHE_NAME = "football-app-v31";
 const urlsToCache = [
     "/",
     "/nav.html",
@@ -27,14 +27,13 @@ const urlsToCache = [
     "/asset/img/bg9.webp",
     "/asset/img/bg10.webp",
     "/asset/img/bg11.webp",
-    "/asset/icons/aple-192x192.webp",
-    "/asset/icons/icon-128x128.webp",
-    "/asset/icons/icon-144x144.webp",
-    "/asset/icons/icon-152x152.webp",
-    "/asset/icons/icon-192x192.webp",
-    "/asset/icons/icon-384x384.webp",
-    "/asset/icons/icon-512x512.webp",
-    "https://fonts.googleapis.com/icon?family=Material+Icons",
+    "/asset/icons/aple-192x192.png",
+    "/asset/icons/icon-128x128.png",
+    "/asset/icons/icon-144x144.png",
+    "/asset/icons/icon-152x152.png",
+    "/asset/icons/icon-192x192.png",
+    "/asset/icons/icon-384x384.png",
+    "/asset/icons/icon-512x512.png",
     // "http://api.football-data.org/v2/teams"
 ];
 
